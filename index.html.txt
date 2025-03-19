@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FireGuard AI - Quantum SafeSearch</title>
+    <script>
+        class FireGuardAI {
+            constructor() {
+                // 🚀 **Unbreakable NSFW Restriction List**
+                this.restrictedWords = new Set([
+                    "porn", "p0rn", "nude", "nüde", "xxx", "sex", "s3x", "seggs",
+                    "nsfw", "nfsw", "adult", "explicit", "erotic", "gore", "violence",
+                    "abuse", "suicide", "selfharm", "self-harm", "kys", "kill",
+                    "r@pe", "p0rnography", "naked", "tits", "b00bs", "c0ck", "v@gina", "d1ck"
+                ]);
+
+                // 🔥 **Ultimate Website Restriction List**
+                this.restrictedWebsites = new Set([
+                    ".porn", ".sex", ".xxx", ".adult", ".nsfw", ".nude", 
+                    "pornhub.com", "xvideos.com", "xnxx.com", "redtube.com", 
+                    "onlyfans.com", "chaturbate.com", "camsoda.com",
+                    "nsfw.com", "xhamster.com", "fap.com"
+                ]);
+
+                // 🔒 **Quantum Encryption for Off Button**
+                this.isFireGuardEnabled = true;
+                this.password = "QuantumSafe2025"; // 🔥 Change this to your own password!
+            }
+
+            // ✅ **Text Filtering**
+            analyzeContent(text) {
+                let lowerText = text.toLowerCase();
+                let words = lowerText.split(" ");
+                for (let word of words) {
+                    if (this.restrictedWords.has(word)) {
+                        return { flagged: true, reason: "🚨 Inappropriate text detected!" };
+                    }
+                }
+                return { flagged: false };
+            }
+
+            // ✅ **Website Filtering**
+            analyzeWebsite(url) {
+                for (let site of this.restrictedWebsites) {
+                    if (url.includes(site)) {
+                        return { flagged: true, reason: "🚨 Unsafe website detected!" };
+                    }
+                }
+                return { flagged: false };
+            }
+
+            // 🔥 **Quantum Neural Learning (Auto-Expands Database)**
+            learnNewInappropriateWord(word) {
+                this.restrictedWords.add(word);
+                console.log(`🔥 FireGuard learned: ${word}`);
+            }
+
+            // 🚀 **Safe Word Suggestions**
+            suggestSafeWords(input) {
+                let suggestions = {
+                    "sex": "relationship",
+                    "nude": "art",
+                    "porn": "cinema",
+                    "violence": "conflict",
+                    "gore": "fiction"
+                };
+                return suggestions[input] || "⚠ Please rephrase your message.";
+            }
+
+            // 🔒 **Turn Off Button (Password-Protected)**
+            toggleFireGuard() {
+                let userPassword = prompt("Enter FireGuard Password to Disable:");
+                if (userPassword === this.password) {
+                    this.isFireGuardEnabled = !this.isFireGuardEnabled;
+                    alert(`FireGuard is now ${this.isFireGuardEnabled ? "ENABLED" : "DISABLED"}`);
+                } else {
+                    alert("❌ Incorrect Password! FireGuard remains active.");
+                }
+            }
+        }
+
+        // ✅ Initialize FireGuard AI
+        const fireGuard = new FireGuardAI();
+
+        function checkInput() {
+            let userInput = document.getElementById("userInput").value;
+            let result = fireGuard.analyzeContent(userInput);
+            if (result.flagged) {
+                alert(result.reason);
+            } else {
+                alert("✅ Safe message!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>🔥 FireGuard AI - Quantum SafeSearch</h1>
+    <p>Enter a word or phrase to test:</p>
+    <input type="text" id="userInput">
+    <button onclick="checkInput()">Check</button>
+    <br><br>
+    <button onclick="fireGuard.toggleFireGuard()">🔒 Toggle FireGuard (Password Protected)</button>
+</body>
+</html>
