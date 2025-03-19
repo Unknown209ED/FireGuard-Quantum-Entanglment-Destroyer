@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FireGuard AI – Infinity Mode</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #111; color: white; padding: 50px; }
+        .secure-box { background-color: #222; padding: 20px; border-radius: 10px; display: inline-block; }
+        .restricted { color: red; font-weight: bold; }
+        button { background-color: #ff0000; color: white; padding: 10px 20px; border: none; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #cc0000; }
+        input { padding: 5px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <h1>🚀 FireGuard AI – Quantum Secure Mode 🔥</h1>
+    <div class="secure-box">
+        <p><strong>🌍 Safe Browsing Enabled</strong></p>
+        <p class="restricted">⚠ NSFW & Inappropriate Content is Fully Blocked ⚠</p>
+        <p>FireGuard AI is actively scanning for unsafe content.</p>
+    </div>
+
+    <h2>🔒 Secure Settings</h2>
+    <button onclick="disableFireGuard()">Turn Off (Password Required)</button>
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <script>
+        class FireGuardAI {
+            constructor() {
+                this.restrictedWords = new Set([
+                    "porn", "p0rn", "nude", "nüde", "xxx", "s3x", "seggs", "nsfw",
+                    "nfsw", "adult", "explicit", "erotic", "gore", "violence", "abuse",
+                    "suicide", "selfharm", "self-harm", "r@pe", "kys", "kill", "murder",
+                    "p0rnography", "naked", "t1ts", "b00bs", "c0ck", "v@gina", "d1ck",
+                    "incest", "loli", "shota", "furry", "hentai", "camgirl"
+                ]);
+                this.restrictedWebsites = new Set([
+                    ".porn", ".sex", ".xxx", ".adult", ".nsfw", ".nude",
+                    "pornhub.com", "xvideos.com", "xnxx.com", "redtube.com",
+                    "onlyfans.com", "chaturbate.com", "camsoda.com", "nsfw.com"
+                ]);
+            }
+
+            analyzeContent(text) {
+                let lowerText = text.toLowerCase();
+                for (let word of this.restrictedWords) {
+                    if (lowerText.includes(word)) {
+                        return { flagged: true, reason: "🚨 Inappropriate text detected!" };
+                    }
+                }
+                return { flagged: false };
+            }
+
+            analyzeWebsite(url) {
+                for (let site of this.restrictedWebsites) {
+                    if (url.includes(site)) {
+                        return { flagged: true, reason: "🚨 Unsafe website detected!" };
+                    }
+                }
+                return { flagged: false };
+            }
+        }
+
+        const fireGuard = new FireGuardAI();
+
+        function disableFireGuard() {
+            const password = document.getElementById("password").value;
+            if (password === "Fishing4L!fe") {
+                alert("⚠ FireGuard is now disabled! Use responsibly.");
+                document.body.innerHTML = "<h1>🔓 FireGuard Disabled</h1><p>⚠ You have turned off FireGuard AI.</p>";
+            } else {
+                alert("❌ Incorrect password! FireGuard remains active.");
+            }
+        }
+    </script>
+
+</body>
+</html>
